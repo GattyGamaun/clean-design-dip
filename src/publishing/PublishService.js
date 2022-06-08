@@ -1,12 +1,13 @@
 module.exports = class PublishService {
-    publishNews(newsType, newsArticles) {
-        const articles = newsArticles.map(article => this.formatArticle(article)).join('\n');
-        return `${newsType} News:\n${articles}`;
+    publishNews() {
+        throw new Error('This method must be implemented');
     }
 
-    formatArticle(article) {
-        return article.newsType === 'Regional' ?
-            `<${article.headline}>` :
-            `${article.headline} -- ${article.description}`;
+    formatArticle() {
+        throw new Error('This method must be implemented');
+    }
+
+    formatArticles(articles) {
+        return articles.map(article => this.formatArticle(article)).join('\n');
     }
 }
